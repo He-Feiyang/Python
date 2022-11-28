@@ -179,14 +179,29 @@ s = '''双儿 洪七公 赵敏 赵敏 逍遥子 鳌拜 殷天正 金轮法王 �
 # w.to_file('test.png')
 
 #绘制词云：政府工作报告
-import jieba
-import wordcloud
-txt = open('./some_doc/新时代中国特色社会主义.txt', 'r').read()
-w = wordcloud.WordCloud( width = 1000, height = 1000, \
-                         font_path = 'msyh.ttc', background_color='white') #msyh.ttc表示字体使用微软雅黑
-w.generate(' '.join(jieba.lcut(txt))) #jieba.lcut(txt)首先对中文进行分词，生成一个列表变量，' '.join()将列表中的每个元素之间加入空格
-w.to_file('新时代中国特色社会主义.png')
+# import jieba
+# import wordcloud
+# txt = open('./some_doc/新时代中国特色社会主义.txt', 'r').read()
+# w = wordcloud.WordCloud( width = 1000, height = 1000, \
+#                          font_path = 'msyh.ttc', background_color='white') #msyh.ttc表示字体使用微软雅黑
+# w.generate(' '.join(jieba.lcut(txt))) #jieba.lcut(txt)首先对中文进行分词，生成一个列表变量，' '.join()将列表中的每个元素之间加入空格
+# w.to_file('新时代中国特色社会主义.png')
 
+#计算文件中英文小写字符的数量
+# f = open('./some_doc/latex.log')
+# cc = 0
+# d = {}
+
+# for i in range(26):
+#     d[chr(ord('a')+1)] = 0
+# for line in f:
+#     for c in line:
+#         d[c] = d.get(c, 0) + 1
+#         cc += 1
+# print("共{}字符".format(cc),end='')
+# for i in range(26):
+#     if d[chr(ord('a')+1)] != 0:
+#         print(',{}:{}'.format(chr(ord('a')+i),d[chr(ord('a')+i)]),end='')
 
 
 
