@@ -6,8 +6,7 @@ def get_mask(id):
 			sum |= i ^ j
 	return hex(~sum & 0xffffffff)
 
-id = [0x5c9,
-0x5ca,
+id = [0x218, 0x240, 0x245
 ]
 for i in range(len(id)):
 	print("%#x"%id[i], end = ',')

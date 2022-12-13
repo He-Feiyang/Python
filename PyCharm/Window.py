@@ -10,11 +10,9 @@
 
 import sys
 
-from PyQt5.QtWidgets import QApplication, QWidget, QToolTip, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QToolTip, QPushButton, QMessageBox, QDesktopWidget
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import QCoreApplication
-
-from MainWindow import Ui_MainWindow
 
 class Example(QWidget):
     def __init__(self):
@@ -33,12 +31,14 @@ class Example(QWidget):
         btn.move(200, 60) # 设置button在窗口的位置
 
         # 主窗口
-        self.setGeometry(300,300,300,100) # 主窗口位置、大小
+        self.setGeometry(300,300,500,300) # 主窗口位置、大小
         self.setWindowTitle('hfyTest') #主窗口名字
         self.setWindowIcon(QIcon('title.png')) #主窗口图片
         
+        self.center()
         self.show()
 
+    # 点窗口右上角的关闭按钮触发确认弹窗
     def closeEvent(self, event):
         reply = QMessageBox.question(self, 'Warning', 'Are you sure to quit?', 
         QMessageBox.Yes | QMessageBox.No, QMessageBox.No) # yes和no表示消息框的俩按钮，最后一个参数是默认高亮的是哪个按钮
@@ -48,11 +48,12 @@ class Example(QWidget):
         else:
             event.ignore()
     
+    # 让主窗口居中的方法
     def center(self):
         qr = self.frameGeometry()
-        
-
-
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
 
 if __name__ == '__main__':
     # application 对象

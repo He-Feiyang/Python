@@ -196,7 +196,9 @@ print('a =', a)
 
 print(JustCounter.count) # 好像地址啊哈哈
 
+import sys
+print(sys.path)
 
-
-
+a =10
+print(id(a),type(a),a)
 
